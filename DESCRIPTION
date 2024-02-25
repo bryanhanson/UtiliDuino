@@ -1,0 +1,23 @@
+Package: UtiliDuino
+Version: 0.1.0
+Date: 2024-02-13
+Title: Utilities to Control Arduino Devices
+Description: Utility functions to control an 'Arduino' microprocessor.  'Arduino' sketches can be compiled and uploaded using 'arduino-cli' and the serial port can be used to send messages and receive data.  A significant re-imagining of the 'Rduino' package.  Not affiliated with the 'Arduino' company, <https://www.arduino.cc/>. 
+Authors@R: c(
+    person("Bryan A.", "Hanson",
+      role = c("aut", "cre"), email =
+      "hanson@depauw.edu",
+      comment = c(ORCID = "0000-0003-3536-8246")),
+    person("Chris", "Sun",
+      role = "ctb",
+      comment = "author of the Rduino package which was the starting point for this package"),
+    person("Peter", "Hoff",
+      role = "ctb",
+      comment = "author of the Rduino package which was the starting point for this package"))
+License: GPL-3
+Depends:
+  serial
+ByteCompile: TRUE
+Encoding: UTF-8
+Roxygen: list(roclets = c("namespace", "rd"), markdown = TRUE)
+RoxygenNote: 7.3.1
