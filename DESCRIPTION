@@ -1,6 +1,6 @@
 Package: UtiliDuino
 Version: 0.1.0
-Date: 2024-02-13
+Date: 2024-02-24
 Title: Utilities to Control Arduino Devices
 Description: Utility functions to control an 'Arduino' microprocessor.  'Arduino' sketches can be compiled and uploaded using 'arduino-cli' and the serial port can be used to send messages and receive data.  A significant re-imagining of the 'Rduino' package.  Not affiliated with the 'Arduino' company, <https://www.arduino.cc/>. 
 Authors@R: c(
