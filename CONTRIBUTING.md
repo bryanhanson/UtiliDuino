@@ -6,7 +6,7 @@ This document explains how one can contribute to `UtiliDuino`.
 
 ### Code of Conduct
 
-This project is released with a [Contributor Code of Conduct](https://bryanhanson.github.io/UtiliDuino/CODE_OF_CONDUCT.html).  By contributing, you agree to abide by its terms.
+This project is released with a Contributor Code of Conduct.  By contributing, you agree to abide by its terms.
 
 ### License
 
@@ -16,17 +16,17 @@ This project is released with a [Contributor Code of Conduct](https://bryanhanso
 
 ### Reporting Bugs & Suggesting Features
 
-One of the easiest ways to contribute is to let us know when you think you have found a bug, or if you think a new feature would be desirable.  Both can be submitted using [issues](https://github.com/bryanhanson/UtiliDuino/issues). Be sure that your version of `R` and all packages are up-to-date. Then include a reproducible example demonstrating the problem, preferably using one of the built-in data sets.
+One of the easiest ways to contribute is to let us know when you think you have found a bug, or if you think a new feature would be desirable.  Both can be submitted using [issues](https://github.com/bryanhanson/UtiliDuino/issues). Be sure that your version of `R` and all packages are up-to-date. Then include a reproducible example demonstrating the problem.
 
 ## Infrastructure
 
 ### Branches
 
-The `main` branch is basically a release branch and the code is always updated and tagged for a CRAN release.  Documentation is based on the `main` branch.  Between CRAN releases, the version on the `main` branch may advance in small ways (and hence the documented version may be ahead of the CRAN version).  The `devel` branch is used as a pre-release branch and ideally always works, and will be the basis for the next CRAN release.  Additional branches will be created as needed; see below.
+Coming later.
 
 ### Continuous Integration
 
-Github Actions are used to automate certain tasks.  Pushing the `main` or `devel` branches will cause a build and check to occur.  Pushing the `main` branch will cause the documentation to be updated. The scripts controlling these actions are in `.github/workflows`.
+Coming later.
 
 ### Versioning
 
