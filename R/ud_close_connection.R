@@ -10,5 +10,3 @@
 ud_close_connection <- function(ud_conn) {
   close(ud_conn)
 }
-
-

@@ -9,7 +9,7 @@
 #' The sketch and any other files in the same directory are copied to a temporary directory
 #' with the same name as the sketch, then compiled and uploaded.
 #' The folder structure should be exactly as with the Arduino IDE: a sketch
-#' named `sketch.ino` must be in a folder named `sketch`, along with any other `.ino`, `.cpp`, 
+#' named `sketch.ino` must be in a folder named `sketch`, along with any other `.ino`, `.cpp`,
 #' `.cxx`, `.cc`. and
 #' `.h` files (or any file type that Arduino will accept - all files are copied w/o any check
 #' about suitability.  File types are hard-coded in `ud_setup_workspace()`).
@@ -29,7 +29,7 @@
 #'
 #' @return `NULL`. The name of the sketch will be printed in the console if upload is
 #'          successful.
-#' 
+#'
 #' @author Bryan A. Hanson
 #' @importFrom tools file_path_sans_ext
 #' @export
@@ -38,9 +38,9 @@
 #' \dontrun{
 #' # An Arduino must be plugged into a serial port to run these examples.
 #' # Study the sketches themselves to see what they should do
-#' 
+#'
 #' currDir <- getwd()
-#' 
+#'
 #' # Sketch #1
 #' setwd(system.file("extdata", "sketch1", package = "UtiliDuino"))
 #' udc <- ud_open_connection()
@@ -48,12 +48,12 @@
 #' Sys.sleep(5) # wait for upload to complete and comms to settle
 #' out <- ud_capture_serial(udc, clean = TRUE, sep = "\\r")
 #' ud_close_connection(udc)
-#' 
+#'
 #' # check output (data is long strings of integers on multiple lines)
 #' tmp <- scan(text = paste(out, collapse = " "))
 #' tmp <- order(unique(tmp))
 #' all.equal(tmp, 1:100) # should be TRUE
-#'   
+#'
 #' # Sketch #2
 #' setwd(system.file("extdata", "sketch2", package = "UtiliDuino"))
 #' udc <- ud_open_connection()
@@ -63,14 +63,14 @@
 #' Sys.sleep(5)
 #' out <- ud_capture_serial(udc, clean = TRUE, sep = "\\r")
 #' ud_close_connection(udc)
-#' 
+#'
 #' # check output (register names and values, one perline, possibly with "listening...")
 #' tmp <- unique(out)
 #' ucsr0c <- grepl("UCSR0C register: 0000 0110", tmp)
 #' isTRUE(any(ucsr0c)) # should be TRUE
 #' adcsra <- grepl("ADCSRA register: 1000 0111", tmp)
 #' isTRUE(any(adcsra)) # should be TRUE
-#'   
+#'
 #' setwd(currDir)
 #' }
 #'
@@ -79,13 +79,12 @@ ud_compile_upload <- function(sketch = NULL,
                               conn = NULL,
                               comp_arg_string = NULL,
                               upload_arg_string = NULL) {
-
   if (is.null(conn)) stop("You must provide the name of an open serial connection")
   if (is.null(sketch)) stop("You must provide a .ino sketch")
   port <- ud_get_port()
   uport <- port[2]
   port <- port[1]
-  
+
   ard_path <- ud_get_arduino_path()
 
   # verify sketch exists
@@ -104,10 +103,12 @@ ud_compile_upload <- function(sketch = NULL,
   # compile the sketch
   if (is.null(comp_arg_string)) comp_arg_string <- paste("compile -b", board, sketch_name, sep = " ")
   system2(ard_path, comp_arg_string, stdout = TRUE, stderr = TRUE)
-  
+
   # upload the sketch
-  if (is.null(upload_arg_string)) upload_arg_string <-
+  if (is.null(upload_arg_string)) {
+    upload_arg_string <-
       paste("upload -b", board, "-p", uport, sketch_name, sep = " ")
+  }
   system2(ard_path, upload_arg_string, stdout = TRUE, stderr = TRUE)
 
   return(NULL)

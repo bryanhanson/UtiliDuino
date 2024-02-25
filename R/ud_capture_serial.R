@@ -16,12 +16,10 @@
 ud_capture_serial <- function(ud_conn, clean = FALSE, sep = NULL) {
   res <- read.serialConnection(ud_conn)
   if (clean) {
-  res <- unlist(strsplit(res, sep))
-  	keep <- which(res != " ")
-  	res <- res[keep]
-  	res <- trimws(res)
+    res <- unlist(strsplit(res, sep))
+    keep <- which(res != " ")
+    res <- res[keep]
+    res <- trimws(res)
   }
   return(res)
 }
-
-
