@@ -11,6 +11,5 @@
 #' @keywords package
 #' @name UtiliDuino-package
 #' @aliases UtiliDuino-package UtiliDuino
-#' @seealso Additional documentation at \url{https://bryanhanson.github.io/UtiliDuino/}
 #' @import serial
 "_PACKAGE"

@@ -37,11 +37,11 @@
 #' @examples
 #' \dontrun{
 #' # An Arduino must be plugged into a serial port to run these examples.
-#' # Study the sketches themselves to see what they should do
 #'
 #' currDir <- getwd()
 #'
-#' # Sketch #1
+#' # Sketch #1: Counts to 100 repeatedly, prints 20 numbers per line
+#'
 #' setwd(system.file("extdata", "sketch1", package = "UtiliDuino"))
 #' udc <- ud_open_connection()
 #' jnk <- ud_compile_upload("sketch1.ino", conn = udc)
@@ -54,7 +54,8 @@
 #' tmp <- order(unique(tmp))
 #' all.equal(tmp, 1:100) # should be TRUE
 #'
-#' # Sketch #2
+#' # Sketch #2: Queries the values of some registers after receiving a "go" signal
+#'
 #' setwd(system.file("extdata", "sketch2", package = "UtiliDuino"))
 #' udc <- ud_open_connection()
 #' jnk <- ud_compile_upload("sketch2.ino", conn = udc)
@@ -64,7 +65,7 @@
 #' out <- ud_capture_serial(udc, clean = TRUE, sep = "\\r")
 #' ud_close_connection(udc)
 #'
-#' # check output (register names and values, one perline, possibly with "listening...")
+#' # check output (register names and values, one per line, possibly with " Arduino listening...")
 #' tmp <- unique(out)
 #' ucsr0c <- grepl("UCSR0C register: 0000 0110", tmp)
 #' isTRUE(any(ucsr0c)) # should be TRUE
