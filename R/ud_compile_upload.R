@@ -89,7 +89,7 @@ ud_compile_upload <- function(sketch = NULL,
   ard_path <- ud_get_arduino_path()
 
   # verify sketch exists
-  cat(sketch, "\n")
+  cat(sketch, "\n") # Change this?  TODO
   sketch_full_name <- normalizePath(sketch)
   chk <- file.exists(sketch_full_name)
   if (!chk) stop("Could not find the sketch you specified")

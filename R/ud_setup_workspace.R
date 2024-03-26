@@ -23,7 +23,7 @@ ud_setup_workspace <- function(sketch_full_name = NULL) {
   subdir <- file.path(td, sub)
 
   # copy all the files
-  pat <- c("\\.ino", "\\.h", "\\.cxx", "\\.cc")
+  pat <- "\\.ino|\\.h|\\.cxx|\\.cc"
   files <- list.files(path = dirname(sketch_full_name), pattern = pat, full.names = TRUE)
   chk <- file.copy(from = files, to = subdir, overwrite = TRUE)
   if (any(!chk)) stop("sketch copy failed")
