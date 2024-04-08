@@ -13,6 +13,9 @@
 #' @export
 #'
 ud_open_connection <- function(baud = 9600, mode = "n,8,1") {
+	
+  if (grepl("darwin", version$os) & (baud > 230400)) stop("MacOS cannot have baud > 230400")
+  
   port <- ud_get_port()[1]
 
   ud_conn <- serialConnection(
